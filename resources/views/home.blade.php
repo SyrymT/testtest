@@ -1,14 +1,23 @@
 @extends('layouts.app')
 
-@section('title', 'Home - Uly Dala Journal')
-
 @section('content')
 <div class="container">
-    <h1>Welcome to Uly Dala Journal</h1>
-    <p>Uly Dala Journal is a platform for academic research and scholarly articles.</p>
-    <div class="featured-articles">
-        <h2>Featured Articles</h2>
-        <!-- Add featured articles here -->
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">{{ __('Dashboard') }}</div>
+
+                <div class="card-body">
+                    @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+
+                    {{ __('You are logged in!') }}
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 @endsection
