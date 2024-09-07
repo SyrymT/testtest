@@ -1,35 +1,15 @@
-<?php
+use Illuminate\Auth\Notifications\VerifyEmail;
+use Illuminate\Notifications\Messages\MailMessage;
 
-namespace App\Providers;
-
-use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
-use Illuminate\Support\Facades\Gate;
-use App\Models\User;
-
-class AuthServiceProvider extends ServiceProvider
+public function boot()
 {
-    protected $policies = [
-        // Define your policies here
-    ];
+    $this->registerPolicies();
 
-    public function boot()
-    {
-        $this->registerPolicies();
-
-        Gate::define('submit-article', function (User $user) {
-            return $user->hasRole('author');
-        });
-
-        Gate::define('review-article', function (User $user) {
-            return $user->hasRole('reviewer');
-        });
-
-        Gate::define('edit-article', function (User $user) {
-            return $user->hasRole('editor');
-        });
-
-        Gate::define('manage-journal', function (User $user) {
-            return $user->hasRole('admin');
-        });
-    }
+    VerifyEmail::toMailUsing(function ($notifiable, $url) {
+        return (new MailMessage)
+            ->subject('Verify Email Address')
+            ->line('Click the button below to verify your email address.')
+            ->action('Verify Email Address', $url)
+            ->line('If you did not create an account, no further action is required.');
+    });
 }
