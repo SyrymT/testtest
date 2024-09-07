@@ -41,11 +41,4 @@
       0 => 'Termwind\\Laravel\\TermwindServiceProvider',
     ),
   ),
-  'spatie/laravel-sitemap' => 
-  array (
-    'providers' => 
-    array (
-      0 => 'Spatie\\Sitemap\\SitemapServiceProvider',
-    ),
-  ),
 );

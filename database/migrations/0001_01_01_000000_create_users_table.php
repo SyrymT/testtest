@@ -14,15 +14,9 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('surname');
             $table->string('email')->unique();
-            $table->string('organization')->nullable();
-            $table->string('country');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->boolean('consent_data_storage')->default(false);
-            $table->boolean('consent_notifications')->default(false);
-            $table->boolean('consent_reviewing')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });

@@ -6,12 +6,9 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
-        "guzzlehttp/guzzle": "*",
-        "laravel/framework": "*",
-        "laravel/tinker": "*",
-        "laravel/ui": "^4.5",
-        "smalot/pdfparser": "*",
-        "spatie/laravel-sitemap": "*"
+        "laravel/framework": "^11.9",
+        "laravel/tinker": "^2.9",
+        "laravel/ui": "^4.5"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
